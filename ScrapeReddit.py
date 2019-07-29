@@ -11,11 +11,11 @@ import pandas as pd
 import praw
 
 reddit = praw.Reddit(user_agent='Comment Extraction (by /u/USERNAME)',client_id='GsTWiqwBzl-nHg',client_secret="oo4D3-UC-Xnv3BvNLvXUxFfnvsw",username='Sea_and_Lightning', password='TKZ-b5N-ggy-kVc')
-#That's my client id
+#That's my client id and credentials you guys can use it 
 comm_list = []
 header_list = []
 i = 0
-for submission in reddit.subreddit('opiatesRecovery').hot(limit= 50):
+for submission in reddit.subreddit('opiatesRecovery').hot(limit= 50): #limit can be set to none in which case all data would be extracted
     submission.comments.replace_more(limit=None)
     comment_queue = submission.comments[:]  # Seed with top-level
     while comment_queue:
